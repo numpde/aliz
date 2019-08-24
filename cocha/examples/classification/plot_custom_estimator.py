@@ -48,29 +48,3 @@ Z = model.predict(np.c_[xx.ravel(), yy.ravel()]).reshape(xx.shape)
 ax.contourf(xx, yy, Z, cmap=plt.cm.get_cmap('RdBu'), alpha=.8, zorder=-5)
 
 plt.show()
-
-
-exit(39)
-
-
-from ailz_tools.classification.topt import CustomEstimator
-
-# model = CustomEstimator().fit(X, y)
-model = LogisticRegression(solver='lbfgs').fit(X, y)
-p = model.predict_proba(X)[:, 1]
-gini_threshold(y, p)
-ax.plot(p, y, '.')
-plt.show()
-exit(39)
-
-(fpr, tpr, thresholds) = roc_curve(y, model.predict(X))
-gini = (2 * auc(fpr, tpr)) - 1
-print(gini)
-
-gini_threshold(y, model.predict(X))
-
-# print(np.mean(model.predict(X)))
-ax.scatter(y, model.predict(X), alpha=0.1)
-plt.show()
-
-
