@@ -67,7 +67,10 @@ class CustomEstimator(BaseEstimator, ClassifierMixin):
 	with a class binarizer. The class binarizer is based
 	on the Gini impurity index similar to decision trees.
 
-	Only the member functions fit and predict are implemented.
+	The threshold for the binarizer is selected post-training.
+
+	Only the member functions fit and predict are implemented
+	with the usual sklearn semantics.
 
 	Parameters
 	----------
